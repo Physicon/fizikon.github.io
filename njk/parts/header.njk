@@ -1,0 +1,24 @@
+<header>
+	<div class="container">
+		<a href="/" class="logo"></a>
+		<div class="nav">
+			<a class="menu_btn" @click="menuBtn">
+				<span></span>
+				<span></span>
+				<span></span>
+			</a>
+			<ul class="menu-list" :class="{menu_show : isActive}">
+				<li><a><span>Витрина</span></a></li>
+				<li><a><span>О проекте</span></a></li>
+				<li><a><span>Новости</span></a></li>
+				<li><a><span>Помощь</span></a></li>
+				<li><a><span>Скачать</span></a></li>
+			</ul>
+		</div>
+		<div class="btns">
+			<a>Каталог</a>
+			<a>Активация</a>
+			<a>Вход</a>
+		</div>
+	</div>
+</header>

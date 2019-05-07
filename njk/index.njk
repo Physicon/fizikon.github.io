@@ -1,0 +1,84 @@
+{% set title = "" %}
+{% extends "njk/layouts/main.njk" %}
+{% block content %}
+<div class="content">
+	<h1>Витрина</h1>
+	<div class="filter" id="searchForm">
+		<div>
+			<select v-model="subject" name="subject" id="subject">
+				<option value="all">Все предметы</option>
+				<option>Алгебра</option>
+				<option>Английский язык</option>
+				<option>Биология</option>
+				<option>География</option>
+				<option>Геометрия</option>
+				<option>Демо-версия</option>
+				<option>Информатика</option>
+				<option>История</option>
+				<option>Литература</option>
+				<option>Математика</option>
+				<option>Обществознание</option>
+				<option>Окружающий мир</option>
+				<option>Робототехника</option>
+				<option>Русский язык</option>
+				<option>Физика</option>
+				<option>Химия</option>
+			</select>
+		</div>
+		<div>
+			<select v-model="genre" id="genre" name="genre">
+				<option value="all">Все жанры</option>
+				<option>Демо</option>
+				<option>Задачник</option>
+				<option>Подготовка к ВПР</option>
+				<option>Подготовка к ЕГЭ</option>
+				<option>Рабочая тетрадь</option>
+			</select>
+		</div>
+		<div>
+			<select id="grade" v-model="grade" name="grade">
+				<option value="all">Все классы</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+				<option>11</option>
+			</select>
+		</div>
+		<div>
+			<input type="text" v-model="search" placeholder="Поиск" id="search" name="search">
+			<button class="form-search-btn" type="submit" title="Найти"></button>
+		</div>
+	</div>
+	<h2 v-show="resultsHide">Результаты поиска:</h2>
+	<p v-show="resultsEmpty" class="search-empty">Курсы не найдены</p>
+	<ul id="courseslist" class="courses-list">
+		<li v-for="(result, index) in filteredList">
+			<div class="img" 
+			v-bind:style="{background: 'url(https://www.imumk.ru/svc/coursecover/'+ result.courseId +')'}">
+		</div>
+		<div class="info">
+			<p class="title">${result.subject}</p>
+			<p class="grade">${result.gradeNew}</p>
+			<p class="genre">${result.genre}</p>
+			<a class="more" :href="result.shopUrl">Подробнее</a>
+			<p class="price">
+				<span v-if="!checked">${result.price} руб.</span>
+				<span v-else>${result.priceBonus} бонусов</span>
+			</p>
+			<div class="switch">
+				<input type="checkbox" :id="'sw_'+index" v-model="checked">
+				<label :for="'sw_'+index">рубли/бонусы</label>
+				<div class="check"></div>
+			</div>
+		</div>
+	</li>
+</ul>
+</div>
+{% endblock %}

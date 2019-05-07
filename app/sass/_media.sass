@@ -1,0 +1,66 @@
+@import 'vars'
+@media only screen and (max-width : 860px)
+	header
+		.container
+			-webkit-flex-direction: column
+			-ms-flex-direction: column
+			flex-direction: column
+		.nav
+			padding: 0
+			position: absolute
+			top: 0
+			left: 20px
+			margin: 20px 
+		.logo
+			margin-bottom: 20px
+		.btns
+			width: 100%
+			flex-direction: column 
+			a
+				margin: 0 0 10px
+				width: 100% 
+				&:first-child
+					display: none
+@media only screen and (max-width : 750px)
+	.content 
+		.filter
+			-webkit-flex-wrap: wrap
+			-ms-flex-wrap: wrap
+			flex-wrap: wrap
+			&>div
+				width: calc(33.33% - 14px)
+				&:nth-child(3n)
+					margin-right: 0
+				&:last-child
+					width: 100% 
+					margin-top: 15px
+@media only screen and (max-width : 575px)
+	.content 
+		.filter
+			&>div
+				width: 100%
+				margin-right: 0
+				margin-bottom: 15px
+				&:nth-child(3n)
+					margin-right: 0
+				&:last-child
+					margin: 0
+	footer 
+		.container
+			-webkit-flex-direction: column
+			-ms-flex-direction: column
+			flex-direction: column
+			text-align: center
+			div
+				&:last-child
+					text-align: center
+		.footer-social
+			-webkit-justify-content: center
+			justify-content: center
+			padding: 10px 0
+@media only screen and (max-width : 460px)
+	header
+		.nav
+			margin: 15px 0 
+		.logo
+			width: 200px
